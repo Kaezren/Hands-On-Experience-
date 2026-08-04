@@ -1,10 +1,10 @@
-# Hands-On Experience
+# Hands-On Experience 
 
-Documentation of my practical networking and cybersecurity work during SIWES and personal labs.
+1. Documentation of my practical networking and cybersecurity work during SIWES and personal labs.
 
 ---
 
-## Multi-Network Topology with Two Routers
+## Multi-Network Topology with Two Routers Using Cisco Packet Tracer
 
 ### Overview
 Configured two Cisco routers (2911) in Packet Tracer to interconnect multiple networks. Devices on different subnets communicate through the routers acting as default gateways.
