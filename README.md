@@ -67,4 +67,41 @@ End devices now receive their IP configuration automatically via DHCP instead of
 
 ---
 
+## 3. Wireless Connectivity + ACL Security Lab
+
+### Overview
+Expanded the topology with a dedicated wireless network and implemented an Access Control List (ACL) to restrict traffic for security purposes.
+
+### Topology Updates
+- Added Access Point with three laptops (Laptop2, Laptop3, Laptop4)
+- Assigned the wireless devices to network **192.168.5.0/24**
+- Router (ISR 4331 - Router8) provides DHCP for the wireless network
+- Servers remain on **192.168.2.0** network
+
+### What I Configured
+
+**Wireless Network**
+- Connected Access Point to a router interface
+- Configured DHCP pool on the router for 192.168.5.0/24 so the laptops receive IP addresses automatically
+- Verified wireless clients can obtain IPs and communicate within their network
+
+**ACL (Security Rule)**
+- Created a standard/extended ACL to **block the entire 192.168.5.0/24 wireless network** from communicating with the **192.168.2.0 server network**
+- Applied the ACL in the appropriate direction on the relevant router interface
+- Purpose: Prevent wireless clients from accessing the server network (basic network segmentation / security control)
+
+### Key Concepts Practiced
+- Wireless client connectivity in Packet Tracer
+- Using a router as DHCP server for a wireless network
+- Writing and applying ACLs to deny traffic between specific networks
+- Understanding inbound vs outbound ACL direction
+- Basic network security through traffic filtering
+
+### Result
+- Wireless laptops successfully join the 192.168.5.0/24 network via the Access Point and receive IPs from the router’s DHCP pool
+- ACL successfully prevents devices on 192.168.5.0/24 from reaching the servers on 192.168.2.0
+- Other networks remain unaffected
+
+---
+
 *More labs and configurations will be added as I progress through SIWES and personal practice.*
