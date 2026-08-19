@@ -2,6 +2,8 @@
 
 Documentation of my practical networking and cybersecurity work during SIWES and personal labs.
 
+**SIWES 1 — Completed**
+
 ---
 
 ## 1. Multi-Network Topology with Two Routers (Static Routing)
@@ -104,4 +106,5 @@ Expanded the topology with a dedicated wireless network and implemented an Acces
 
 ---
 
-*More labs and configurations will be added as I progress through SIWES and personal practice.*
+**SIWES 1 completed.**  
+More labs and configurations will be added during SIWES 2 and personal practice.
