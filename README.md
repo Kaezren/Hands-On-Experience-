@@ -121,9 +121,20 @@ Expanded the topology with a dedicated wireless network and implemented an Acces
 - Verified wireless clients can obtain IPs and communicate within their network
 
 **ACL (Security Rule)**
-- Created a standard/extended ACL to **block the entire wireless network** from communicating with the server network
-- Applied the ACL in the appropriate direction on the relevant router interface
+
+![ACL Configuration](acl-config.jpg)
+
+```
+access-list 10 deny 192.168.10.0 0.0.0.255
+access-list 10 permit any
+```
+
+![ACL Test - Ping Blocked](acl-ping-test.jpg)
+
+- Created a standard ACL to **block the wireless network (192.168.10.0/24)** from reaching other networks
+- Applied the ACL on the relevant router interface
 - Purpose: Prevent wireless clients from accessing the server network (basic network segmentation / security control)
+- The ping test confirms the ACL is working (Destination host unreachable)
 
 ### Key Concepts Practiced
 - Wireless client connectivity in Packet Tracer
