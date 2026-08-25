@@ -80,7 +80,13 @@ ip dhcp pool WIRELESS
 ip route 0.0.0.0 0.0.0.0 10.10.10.2
 ```
 
-- This sets a default route so the router forwards traffic for any unknown destination to the specified next-hop (10.10.10.2)
+![Default Route Configuration 2](default-route2.jpg)
+
+```
+ip route 0.0.0.0 0.0.0.0 10.10.10.1
+```
+
+- These default routes allow each router to forward traffic for unknown destinations to the other router.
 
 ### Key Concepts Practiced
 - DHCP pool configuration and IP address assignment
