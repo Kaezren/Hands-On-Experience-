@@ -106,7 +106,7 @@ Expanded the topology with a dedicated wireless network and implemented an Acces
 
 ### Topology Updates
 - Added Access Point with three laptops (Laptop2, Laptop3, Laptop4)
-- Assigned the wireless devices to network **192.168.5.0/24**
+- Assigned the wireless devices to network **192.168.10.0/24**
 - Router (ISR 4331 - Router8) provides DHCP for the wireless network
 - Servers remain on **192.168.2.0** network
 
