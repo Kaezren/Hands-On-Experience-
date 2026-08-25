@@ -73,11 +73,14 @@ ip dhcp pool WIRELESS
 ```
 
 **Default Routing**
-- Used the command:
-  ```
-  ip route 0.0.0.0 0.0.0.0 <next-hop-ip>
-  ```
-- This sets a default route so the router forwards traffic for any unknown destination to the specified next-hop (usually the other router or exit interface)
+
+![Default Route Configuration](default-route.jpg)
+
+```
+ip route 0.0.0.0 0.0.0.0 10.10.10.2
+```
+
+- This sets a default route so the router forwards traffic for any unknown destination to the specified next-hop (10.10.10.2)
 
 ### Key Concepts Practiced
 - DHCP pool configuration and IP address assignment
