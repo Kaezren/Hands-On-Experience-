@@ -113,12 +113,15 @@ Expanded the topology with a dedicated wireless network and implemented an Acces
 ### What I Configured
 
 **Wireless Network**
+
+![Wireless Network Topology](wireless-topology.jpg)
+
 - Connected Access Point to a router interface
-- Configured DHCP pool on the router for 192.168.5.0/24 so the laptops receive IP addresses automatically
+- Configured DHCP pool on the router for the wireless network so the laptops receive IP addresses automatically
 - Verified wireless clients can obtain IPs and communicate within their network
 
 **ACL (Security Rule)**
-- Created a standard/extended ACL to **block the entire 192.168.5.0/24 wireless network** from communicating with the **192.168.2.0 server network**
+- Created a standard/extended ACL to **block the entire wireless network** from communicating with the server network
 - Applied the ACL in the appropriate direction on the relevant router interface
 - Purpose: Prevent wireless clients from accessing the server network (basic network segmentation / security control)
 
@@ -130,8 +133,8 @@ Expanded the topology with a dedicated wireless network and implemented an Acces
 - Basic network security through traffic filtering
 
 ### Result
-- Wireless laptops successfully join the 192.168.5.0/24 network via the Access Point and receive IPs from the router’s DHCP pool
-- ACL successfully prevents devices on 192.168.5.0/24 from reaching the servers on 192.168.2.0
+- Wireless laptops successfully join the wireless network via the Access Point and receive IPs from the router’s DHCP pool
+- ACL successfully prevents devices on the wireless network from reaching the servers
 - Other networks remain unaffected
 
 ---
