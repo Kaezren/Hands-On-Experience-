@@ -59,6 +59,19 @@ Extended the previous multi-router lab by implementing DHCP for automatic IP ass
 - Created IP pools on the routers
 - Configured DHCP services so end devices (PCs and laptops) automatically receive IP addresses, subnet masks, and default gateways
 
+**DHCP Configuration Example:**
+
+![DHCP Pools Configuration](dhcp-pools.jpg)
+
+```
+ip dhcp pool NET1
+ network 172.16.10.0 255.255.255.0
+ default-router 172.16.10.1
+ip dhcp pool WIRELESS
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+```
+
 **Default Routing**
 - Used the command:
   ```
