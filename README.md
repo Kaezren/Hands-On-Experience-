@@ -8,7 +8,7 @@ Documentation of my practical networking and cybersecurity work during SIWES and
 
 ## General Topology
 
-![General Network Topology](images/general-topology.jpg)
+![General Network Topology](general-topology.jpg)
 
 This is the overall Packet Tracer topology used across the labs (multiple routers, switches, servers, PCs, laptops, and wireless access point).
 
