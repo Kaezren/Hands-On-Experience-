@@ -1,8 +1,20 @@
-# Hands-On Experience
+# Hands-On Networking & Cybersecurity Experience
 
-Documentation of my practical networking and cybersecurity work during SIWES and personal labs.
+Practical networking and cybersecurity labs completed during SIWES and personal practice using Cisco Packet Tracer.
 
-**SIWES 1 — Completed**
+**Focus areas:** Network configuration, routing, DHCP, ACLs, wireless, and basic network security.
+
+---
+
+## Skills Demonstrated
+
+- Router interface configuration (CLI)
+- Static routing and default routing
+- DHCP pool configuration
+- Access Control Lists (ACLs)
+- Wireless network setup
+- Multi-router topologies
+- Network segmentation and basic security controls
 
 ---
 
@@ -10,54 +22,54 @@ Documentation of my practical networking and cybersecurity work during SIWES and
 
 ![General Network Topology](general-topology.jpg)
 
-This is the overall Packet Tracer topology used across the labs (multiple routers, switches, servers, PCs, laptops, and wireless access point).
+Overall Packet Tracer topology used across the labs (routers, switches, servers, PCs, laptops, and wireless access point).
 
 ---
 
 ## 1. Multi-Network Topology with Two Routers (Static Routing)
 
 ### Overview
-Configured two Cisco routers (2911) in Packet Tracer to interconnect multiple networks. Devices on different subnets communicate through the routers acting as default gateways.
+Configured two Cisco routers (2911) to interconnect multiple networks. Devices on different subnets communicate through the routers acting as default gateways.
 
 ### Topology Summary
 
 **Router 1 (2911)**
-- Connected to Access Point → 192.168.10.0/24 (wireless network with laptops)
-- Connected to Switch (2960-24TT) → 192.168.20.0/24 (two PCs: PC1 and PC2)
+- Access Point → 192.168.10.0/24 (wireless network)
+- Switch (2960-24TT) → 192.168.20.0/24 (PC1 and PC2)
 - Point-to-point link to Router 2: 10.10.10.0/30
 
 **Router 2 (2911)**
-- Connected to Internal Server 0: 172.16.10.0/24
-- Connected to Internal Server 1: 172.16.20.0/24
+- Internal Server 0: 172.16.10.0/24
+- Internal Server 1: 172.16.20.0/24
 - Point-to-point link back to Router 1: 10.10.10.0/30
 
 ### What I Configured
 - Assigned IP addresses to router interfaces using CLI
-- Brought the interfaces up with `no shutdown`
-- Set the router interface IPs as default gateways for the devices in each network
+- Brought interfaces up with `no shutdown`
+- Set router interface IPs as default gateways for each network
 - Interconnected the two networks so devices can reach across routers
 
 ### Key Concepts Practiced
 - Basic router interface configuration via CLI
 - Using routers as default gateways
-- Connecting different networks (LANs) through a point-to-point link
-- Understanding subnetting (/24 and /30)
+- Connecting different LANs through a point-to-point link
+- Subnetting (/24 and /30)
 
 ### Result
-Devices on the 192.168.10.0/24 and 192.168.20.0/24 networks could communicate with each other and reach the servers on the Router 2 side through the interconnected routers.
+Devices on the 192.168.10.0/24 and 192.168.20.0/24 networks could communicate with each other and reach the servers on the Router 2 side.
 
 ---
 
-## 2. DHCP + Default Routing (SIWES Update)
+## 2. DHCP + Default Routing
 
 ### Overview
-Extended the previous multi-router lab by implementing DHCP for automatic IP assignment and default routing for simpler traffic forwarding.
+Extended the multi-router lab by implementing DHCP for automatic IP assignment and default routing for simpler traffic forwarding.
 
 ### What I Configured
 
 **DHCP**
 - Created IP pools on the routers
-- Configured DHCP services so end devices (PCs and laptops) automatically receive IP addresses, subnet masks, and default gateways
+- Configured DHCP so end devices automatically receive IP addresses, subnet masks, and default gateways
 
 **DHCP Configuration Example:**
 
@@ -86,16 +98,13 @@ ip route 0.0.0.0 0.0.0.0 10.10.10.2
 ip route 0.0.0.0 0.0.0.0 10.10.10.1
 ```
 
-- These default routes allow each router to forward traffic for unknown destinations to the other router.
-
 ### Key Concepts Practiced
-- DHCP pool configuration and IP address assignment
+- DHCP pool configuration and automatic IP assignment
 - Default routes (`0.0.0.0/0`) vs specific static routes
-- How routers use the default route when no more specific match exists in the routing table
-- Practical difference between static routing and default routing in small topologies
+- How routers use the default route when no more specific match exists
 
 ### Result
-End devices now receive their IP configuration automatically via DHCP instead of manual static assignment. Routers can forward traffic to unknown networks using the default route, simplifying the configuration compared to writing individual static routes for every network.
+End devices now receive IP configuration automatically via DHCP. Routers forward traffic for unknown networks using the default route, simplifying configuration.
 
 ---
 
@@ -105,10 +114,10 @@ End devices now receive their IP configuration automatically via DHCP instead of
 Expanded the topology with a dedicated wireless network and implemented an Access Control List (ACL) to restrict traffic for security purposes.
 
 ### Topology Updates
-- Added Access Point with three laptops (Laptop2, Laptop3, Laptop4)
-- Assigned the wireless devices to network **192.168.10.0/24**
-- Router (ISR 4331 - Router8) provides DHCP for the wireless network
-- Servers remain on **192.168.2.0** network
+- Added Access Point with three laptops
+- Wireless network: **192.168.10.0/24**
+- Router provides DHCP for the wireless network
+- Servers on **192.168.2.0** network
 
 ### What I Configured
 
@@ -117,8 +126,8 @@ Expanded the topology with a dedicated wireless network and implemented an Acces
 ![Wireless Network Topology](wireless-topology.jpg)
 
 - Connected Access Point to a router interface
-- Configured DHCP pool on the router for the wireless network so the laptops receive IP addresses automatically
-- Verified wireless clients can obtain IPs and communicate within their network
+- Configured DHCP pool for the wireless network
+- Verified wireless clients obtain IPs and communicate within their network
 
 **ACL (Security Rule)**
 
@@ -131,24 +140,35 @@ access-list 10 permit any
 
 ![ACL Test - Ping Blocked](acl-ping-test.jpg)
 
-- Created a standard ACL to **block the wireless network (192.168.10.0/24)** from reaching other networks
+- Created a standard ACL to block the wireless network (192.168.10.0/24) from reaching other networks
 - Applied the ACL on the relevant router interface
-- Purpose: Prevent wireless clients from accessing the server network (basic network segmentation / security control)
-- The ping test confirms the ACL is working (Destination host unreachable)
+- Purpose: Basic network segmentation / security control
 
 ### Key Concepts Practiced
 - Wireless client connectivity in Packet Tracer
 - Using a router as DHCP server for a wireless network
-- Writing and applying ACLs to deny traffic between specific networks
-- Understanding inbound vs outbound ACL direction
+- Writing and applying ACLs to deny traffic between networks
 - Basic network security through traffic filtering
 
 ### Result
-- Wireless laptops successfully join the wireless network via the Access Point and receive IPs from the router’s DHCP pool
+- Wireless laptops successfully join the network and receive IPs via DHCP
 - ACL successfully prevents devices on the wireless network from reaching the servers
 - Other networks remain unaffected
 
 ---
 
+## Next Labs (In Progress)
+
+- VLANs and inter-VLAN routing
+- More advanced ACL scenarios
+- Basic network security hardening
+
+---
+
 **SIWES 1 completed.**  
-More labs and configurations will be added during SIWES 2 and personal practice.
+More labs will be added during personal practice and future work.
+
+---
+
+### How to view this properly
+All images are stored in the repository root. If any image does not load, refresh the page or check the raw files.
