@@ -1,8 +1,8 @@
 # Hands-On Networking & Cybersecurity Experience
 
-Practical networking and cybersecurity labs completed during SIWES and personal practice using Cisco Packet Tracer.
+Practical networking and cybersecurity labs using Cisco Packet Tracer.
 
-**Focus areas:** Network configuration, routing, DHCP, ACLs, wireless, and basic network security.
+**Focus areas:** Network configuration, routing, DHCP, ACLs, wireless, VLANs, and basic network security.
 
 ---
 
@@ -14,6 +14,7 @@ Practical networking and cybersecurity labs completed during SIWES and personal 
 - Access Control Lists (ACLs)
 - Wireless network setup
 - Multi-router topologies
+- VLAN creation and port assignment
 - Network segmentation and basic security controls
 
 ---
@@ -22,7 +23,7 @@ Practical networking and cybersecurity labs completed during SIWES and personal 
 
 ![General Network Topology](general-topology.jpg)
 
-Overall Packet Tracer topology used across the labs (routers, switches, servers, PCs, laptops, and wireless access point).
+Overall Packet Tracer topology used across earlier labs (routers, switches, servers, PCs, laptops, and wireless access point).
 
 ---
 
@@ -157,18 +158,57 @@ access-list 10 permit any
 
 ---
 
-## Next Labs (In Progress)
+## 4. VLANs and Network Segmentation
 
-- VLANs and inter-VLAN routing
+### Overview
+Configured VLANs on a Cisco 2960 switch to segment the network into three departments: Engineering, HR, and Sales. Each VLAN has its own subnet.
+
+### Topology
+
+![VLAN Topology](vlan-topology.jpg)
+
+- One 2960-24TT switch
+- One 2911 router connected to the switch
+- Multiple PCs assigned to different VLANs
+
+### VLAN Configuration
+
+| VLAN ID | Name        | Ports              | Subnet              |
+|---------|-------------|--------------------|---------------------|
+| 10      | Engineering | Fa0/1 – Fa0/10    | 192.168.1.0/26     |
+| 20      | HR          | Fa0/11 – Fa0/20   | 192.168.1.64/26    |
+| 30      | Sales       | Fa0/21 – Fa0/24   | 192.168.1.128/26   |
+
+**Show VLAN output:**
+
+![Show VLAN](show-vlan.jpg)
+
+### What I Configured
+- Created VLANs 10, 20, and 30 on the switch
+- Assigned access ports to the appropriate VLANs
+- Configured corresponding subnets for each department
+- Connected the switch to a router for inter-VLAN communication
+
+### Key Concepts Practiced
+- Creating and naming VLANs
+- Assigning switch ports to VLANs
+- Network segmentation by department
+- Understanding broadcast domains
+- Basic inter-VLAN connectivity preparation
+
+### Result
+- Devices within the same VLAN can communicate with each other
+- Devices in different VLANs are segmented and require routing to communicate
+- Network is logically divided into Engineering, HR, and Sales departments
+
+---
+
+## Next Labs
+
+- Inter-VLAN routing (Router-on-a-Stick)
 - More advanced ACL scenarios
 - Basic network security hardening
 
 ---
 
-**SIWES 1 completed.**  
-More labs will be added during personal practice and future work.
-
----
-
-### How to view this properly
-All images are stored in the repository root. If any image does not load, refresh the page or check the raw files.
+More labs will be added as I continue practicing.
