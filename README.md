@@ -2,7 +2,7 @@
 
 Practical networking and cybersecurity labs using Cisco Packet Tracer.
 
-**Focus areas:** Network configuration, routing, DHCP, ACLs, wireless, VLANs, and basic network security.
+**Focus areas:** Network configuration, routing, DHCP, DNS, ACLs, wireless, VLANs, and basic network security.
 
 ---
 
@@ -11,6 +11,7 @@ Practical networking and cybersecurity labs using Cisco Packet Tracer.
 - Router interface configuration (CLI)
 - Static routing and default routing
 - DHCP pool configuration
+- DNS server configuration and name resolution
 - Access Control Lists (ACLs)
 - Wireless network setup
 - Multi-router topologies
@@ -203,11 +204,52 @@ Configured VLANs on a Cisco 2960 switch to segment the network into three depart
 
 ---
 
+## 5. DNS Server Configuration + Name Resolution
+
+### Overview
+Configured DNS in Cisco Packet Tracer using the server GUI and integrated it with the existing DHCP-based network. The goal was to allow clients to resolve a web server's IP address using a domain name instead of entering the IP address directly.
+
+### What I Configured
+
+**1. Created and configured the DNS server**
+- Added a Server device to the Packet Tracer topology
+- Configured the server to obtain its IP address through DHCP
+- Used the Server GUI to configure DNS services
+
+**2. Distributed the DNS server through DHCP**
+- Updated the DHCP configuration on the routers
+- Added the DNS server's IP address to the DHCP settings
+- This allowed DHCP clients to automatically learn which DNS server to use
+
+**3. Created a DNS record**
+- Assigned a static IP address to the web server
+- Added the web server's IP address and domain name to the DNS server's records
+- This created a hostname-to-IP mapping for the web server
+
+**4. Verified name resolution**
+- Confirmed that client devices could use the configured domain name to reach the web server
+- Verified that the complete DHCP → DNS → Web Server workflow was functioning correctly
+
+### Key Concepts Practiced
+- DNS server configuration
+- DHCP-provided DNS settings
+- Hostname-to-IP resolution
+- DNS records
+- Relationship between DHCP, DNS, and web services
+- Using GUI-based configuration in Cisco Packet Tracer
+- Troubleshooting and verifying end-to-end network services
+
+### Result
+Clients successfully received the DNS server information through DHCP and could resolve the configured web server's domain name to its IP address. The DNS and web services worked together successfully.
+
+---
+
 ## Next Labs
 
 - Inter-VLAN routing (Router-on-a-Stick)
 - More advanced ACL scenarios
 - Basic network security hardening
+- Additional DNS and network service labs
 
 ---
 
